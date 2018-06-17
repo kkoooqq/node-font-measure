@@ -8,6 +8,7 @@ measureFont.text = measureText
 var canvas = document.createElement('canvas')
 var ctx = canvas.getContext('2d')
 var l = canvas.height = 100
+var char = 'H'
 canvas.width = l * .5
 
 document.body.appendChild(canvas)
@@ -15,34 +16,39 @@ var fs = 64
 
 
 function measureFont (family) {
-	// measure line-height
-	ctx.clearRect(0, 0, l, l)
-
 	ctx.font = fontString(family)
 
+	// measure line-height
+	ctx.clearRect(0, 0, l, l)
 	ctx.textBaseline = 'top'
 	ctx.fillStyle = 'black'
-	ctx.fillText('x', 0, 0)
-
+	ctx.fillText(char, 0, 0)
 	var topH = firstTop(ctx.getImageData(0, 0, l, l))
-
 	ctx.clearRect(0, 0, l, l)
 	ctx.textBaseline = 'bottom'
-	ctx.fillText('x', 0, l)
-
+	ctx.fillText(char, 0, l)
 	var botH = firstTop(ctx.getImageData(0, 0, l, l))
 	var lineHeight = l - botH + topH
 
 	// measure baseline
-
 	ctx.clearRect(0, 0, l, l)
 	ctx.textBaseline = 'alphabetic'
-	ctx.fillText('x', 0, l)
-	var baseH = firstTop(ctx.getImageData(0, 0, l, l))
+	ctx.fillText(char, 0, l)
+	var baselineH = firstTop(ctx.getImageData(0, 0, l, l))
+	var baseline = l - baselineH + topH
 
-	var baseline = l - baseH + topH
-
+	// measure median
 	ctx.clearRect(0, 0, l, l)
+	ctx.textBaseline = 'middle'
+	ctx.fillText(char, 0, l)
+	var medianH = firstTop(ctx.getImageData(0, 0, l, l))
+	var median = l - medianH + topH
+
+
+	// ctx.clearRect(0, 0, l, l)
+	// ctx.textBaseline = 'top'
+	// ctx.fillText(char, 0, 0)
+	// ctx.fillRect(0, median, l, 1)
 
 	// typical overshoot is 1.5%
 
@@ -57,9 +63,9 @@ function measureFont (family) {
 		// tittle,
 		// top,
 		// bottom,
-		lineHeight: lineHeight / fs
-		// median,
-		// middle,
+		lineHeight: lineHeight / fs,
+		median: median / fs,
+		middle: median / fs,
 		// hanging
 	}
 }
