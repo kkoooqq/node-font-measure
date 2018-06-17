@@ -1,0 +1,37 @@
+{
+  "name": "char-metrics",
+  "version": "1.0.0",
+  "description": "Detect metrics of a character of any font",
+  "main": "index.js",
+  "scripts": {
+    "test": "budo test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dy/char-metrics.git"
+  },
+  "keywords": [
+    "font",
+    "type",
+    "typography",
+    "metrics",
+    "measure",
+    "line-height",
+    "vertical",
+    "vertical-rhythm",
+    "baseline",
+    "ascender",
+    "descender",
+    "alphabetic",
+    "text-baseline"
+  ],
+  "author": "Dmitry Yv <dfcreative@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dy/char-metrics/issues"
+  },
+  "homepage": "https://github.com/dy/char-metrics#readme",
+  "dependencies": {
+    "css-font": "^1.0.0"
+  }
+}
