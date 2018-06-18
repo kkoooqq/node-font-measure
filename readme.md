@@ -25,11 +25,10 @@ measure('Roboto')
 
 Get metrics data for a font or custom options.
 
-![font-measure](./sphinx.svg)
+#### `metrics`
 
-### `metrics`
+<img src="./sphinx.svg" width="400"/>
 
-TODO: image...
 
 #### `options`
 
