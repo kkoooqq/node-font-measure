@@ -23,33 +23,42 @@ measure('Roboto')
 
 ```
 
-### `measure(font)`
+### `metrics = measure(font|options)`
 
-Get object with measure data for the character / text string.
+Get metrics data for a font or custom options.
 
-### `measure.text(string, font?)`
+### `metrics`
 
-Get object with measure data for a character or text
+TODO: image...
 
 #### `options`
 
 Property | Default | Meaning
 ---|---|---
-`font` | `sans-serif` | CSS font string or object with font params: `family`, `size` etc.
+`family` | `null` | Font-family to detect metrics. Can be a string or an array (fontstack).
+`origin` | `top` | Origin for metrics. Can be changed to `baseline` or any other metric.
+`size` | `64` | Font-size to use for calculations. Larger size gives higher precision with slower performance.
+`canvas` | `measure.canvas` | Canvas to use for measurements.
+`tittle` | `i` | Character to detect tittle. Null value ignores calculation.
+`descent` | `p` | Character to detect descent line. Null value ignores calculation.
+`ascent` | `h` | Character to detect ascent line. Null value ignores calculation.
+`overshoot` | `O` | Character to detect overshoot. Null value ignores calculation.
+`upper` | `H` | Character to detect upper line / cap-height. Null value ignores calculation.
+`lower` | `x` | Character to detect lower line / x-height. Null value ignores calculation.
 
 
 ## See also
 
-* [optical-properties](https://github.com/dy/optical-properties) − calculate image/character optical center and bounding box.
-* [detect-kerning](https://github.com/dy/detect-kerning) − calculate kerning pairs for a font.
+* [optical-properties](https://ghub.io/optical-properties) − calculate image/character optical center and bounding box.
+* [detect-kerning](https://ghub.io/detect-kerning) − calculate kerning pairs for a font.
 
 ## Related
 
-There are many text / font measuring packages for the moment, but they don't satisfy basic quality requirements.
-
+There are many text / font measuring packages for the moment, but most of them don't satisfy basic quality requirements. Special thanks to @soulwire
+ for [fontmetrics](https://ghub.io/fontmetrics) as model implementation.
 
 ## License
 
-(c) 2018 Dima Yv. MIT License
+© 2018 Dima Yv. MIT License
 
 Development supported by plot.ly.
