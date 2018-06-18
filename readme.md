@@ -2,8 +2,6 @@
 
 Calculate font metrics: baseline, height, line-height, top, bottom, middle, width. Like canvas2d `textMetrics` but with complete data.
 
-![font-measure](./sphinx.svg)
-
 ## Usage
 
 [![npm install font-measure](https://nodei.co/npm/font-measure.png?mini=true)](https://npmjs.org/package/font-measure/)
@@ -26,6 +24,8 @@ measure('Roboto')
 ### `metrics = measure(font|options)`
 
 Get metrics data for a font or custom options.
+
+![font-measure](./sphinx.svg)
 
 ### `metrics`
 
