@@ -2,7 +2,7 @@
 
 Calculate font metrics: baseline, height, line-height, top, bottom, middle, width. Like canvas2d `textMetrics` but with complete data.
 
-![font-measure](https://raw.githubusercontent.com/dy/font-measure/master/sphinx.svg)
+![font-measure](./sphinx.svg)
 
 ## Usage
 
