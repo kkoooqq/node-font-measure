@@ -1,7 +1,5 @@
 'use strict'
 
-var extend = require('object-assign')
-
 module.exports = measure
 
 measure.canvas = document.createElement('canvas')
@@ -30,131 +28,128 @@ function measure (font, o) {
 
 	var canvas = o.canvas || measure.canvas
 	var ctx = canvas.getContext('2d')
-	var chars = extend({
-		upper: 'H',
-		lower: 'x',
-		descent: 'p',
-		ascent: 'h',
-		tittle: 'i',
-		overshoot: 'O'
-	}, o.chars)
+	var chars = {
+		upper: o.upper !== undefined ? o.upper : 'H',
+		lower: o.lower !== undefined ? o.lower : 'x',
+		descent: o.descent !== undefined ? o.descent : 'p',
+		ascent: o.ascent !== undefined ? o.ascent : 'h',
+		tittle: o.tittle !== undefined ? o.tittle : 'i',
+		overshoot: o.overshoot !== undefined ? o.overshoot : 'O'
+	}
 	var l = Math.ceil(fs * 1.5)
 	canvas.height = l
 	canvas.width = l * .5
 	ctx.font = font
 
+	var char = 'H'
+	var result = {
+		top: 0
+	}
 
 	// measure line-height
 	ctx.clearRect(0, 0, l, l)
 	ctx.textBaseline = 'top'
 	ctx.fillStyle = 'black'
-	ctx.fillText(chars.upper, 0, 0)
+	ctx.fillText(char, 0, 0)
 	var topPx = firstTop(ctx.getImageData(0, 0, l, l))
 	ctx.clearRect(0, 0, l, l)
 	ctx.textBaseline = 'bottom'
-	ctx.fillText(chars.upper, 0, l)
+	ctx.fillText(char, 0, l)
 	var bottomPx = firstTop(ctx.getImageData(0, 0, l, l))
-	var lineHeight = l - bottomPx + topPx
+	result.lineHeight =
+	result.bottom = l - bottomPx + topPx
 
 	// measure baseline
 	ctx.clearRect(0, 0, l, l)
 	ctx.textBaseline = 'alphabetic'
-	ctx.fillText(chars.upper, 0, l)
+	ctx.fillText(char, 0, l)
 	var baselinePx = firstTop(ctx.getImageData(0, 0, l, l))
 	var baseline = l - baselinePx - 1 + topPx
+	result.baseline =
+	result.alphabetic = baseline
 
 	// measure median
 	ctx.clearRect(0, 0, l, l)
 	ctx.textBaseline = 'middle'
-	ctx.fillText(chars.upper, 0, l * .5)
+	ctx.fillText(char, 0, l * .5)
 	var medianPx = firstTop(ctx.getImageData(0, 0, l, l))
-	var median = l - medianPx - 1 + topPx - l * .5
+	result.median =
+	result.middle = l - medianPx - 1 + topPx - l * .5
 
 	// measure hanging
 	ctx.clearRect(0, 0, l, l)
 	ctx.textBaseline = 'hanging'
-	ctx.fillText(chars.upper, 0, l * .5)
+	ctx.fillText(char, 0, l * .5)
 	var hangingPx = firstTop(ctx.getImageData(0, 0, l, l))
-	var hanging = l - hangingPx - 1 + topPx - l * .5
+	result.hanging = l - hangingPx - 1 + topPx - l * .5
 
 	// measure ideographic
 	ctx.clearRect(0, 0, l, l)
 	ctx.textBaseline = 'ideographic'
-	ctx.fillText(chars.upper, 0, l)
+	ctx.fillText(char, 0, l)
 	var ideographicPx = firstTop(ctx.getImageData(0, 0, l, l))
-	var ideographic = l - ideographicPx - 1 + topPx
+	result.ideographic = l - ideographicPx - 1 + topPx
 
 	// measure cap
-	ctx.clearRect(0, 0, l, l)
-	ctx.textBaseline = 'top'
-	ctx.fillText(chars.upper, 0, 0)
-	var upper = firstTop(ctx.getImageData(0, 0, l, l))
-
-	// measure x
-	ctx.clearRect(0, 0, l, l)
-	ctx.textBaseline = 'top'
-	ctx.fillText(chars.lower, 0, 0)
-	var lower = firstTop(ctx.getImageData(0, 0, l, l))
-
-	// measure tittle
-	ctx.clearRect(0, 0, l, l)
-	ctx.textBaseline = 'top'
-	ctx.fillText(chars.tittle, 0, 0)
-	var tittle = firstTop(ctx.getImageData(0, 0, l, l))
-
-	// measure ascent
-	ctx.clearRect(0, 0, l, l)
-	ctx.textBaseline = 'top'
-	ctx.fillText(chars.ascent, 0, 0)
-	var ascent = firstTop(ctx.getImageData(0, 0, l, l))
-
-	// measure descent
-	ctx.clearRect(0, 0, l, l)
-	ctx.textBaseline = 'top'
-	ctx.fillText(chars.descent, 0, 0)
-	var descent = firstBottom(ctx.getImageData(0, 0, l, l))
-
-	// measure overshoot
-	ctx.clearRect(0, 0, l, l)
-	ctx.textBaseline = 'top'
-	ctx.fillText(chars.overshoot, 0, 0)
-	var overshootPx = firstBottom(ctx.getImageData(0, 0, l, l))
-	var overshoot = overshootPx - baseline
-
-	var result = {
-		top: 0,
-		bottom: lineHeight,
-		lineHeight: lineHeight,
-
-		baseline: baseline,
-		alphabetic: baseline,
-
-		xHeight: (baseline - lower),
-		capHeight: (baseline - upper),
-
-		lower: lower,
-		upper: upper,
-
-		ascent: ascent,
-		descent: descent,
-		tittle: tittle,
-		overshoot: overshoot,
-
-		ideographic: ideographic,
-		hanging: hanging,
-		median: median,
-		middle: median
+	if (chars.upper) {
+		ctx.clearRect(0, 0, l, l)
+		ctx.textBaseline = 'top'
+		ctx.fillText(chars.upper, 0, 0)
+		result.upper = firstTop(ctx.getImageData(0, 0, l, l))
+		result.capHeight = (result.baseline - result.upper)
 	}
 
+	// measure x
+	if (chars.lower) {
+		ctx.clearRect(0, 0, l, l)
+		ctx.textBaseline = 'top'
+		ctx.fillText(chars.lower, 0, 0)
+		result.lower = firstTop(ctx.getImageData(0, 0, l, l))
+		result.xHeight = (result.baseline - result.lower)
+	}
+
+	// measure tittle
+	if (chars.tittle) {
+		ctx.clearRect(0, 0, l, l)
+		ctx.textBaseline = 'top'
+		ctx.fillText(chars.tittle, 0, 0)
+		result.tittle = firstTop(ctx.getImageData(0, 0, l, l))
+	}
+
+	// measure ascent
+	if (chars.ascent) {
+		ctx.clearRect(0, 0, l, l)
+		ctx.textBaseline = 'top'
+		ctx.fillText(chars.ascent, 0, 0)
+		result.ascent = firstTop(ctx.getImageData(0, 0, l, l))
+	}
+
+	// measure descent
+	if (chars.descent) {
+		ctx.clearRect(0, 0, l, l)
+		ctx.textBaseline = 'top'
+		ctx.fillText(chars.descent, 0, 0)
+		result.descent = firstBottom(ctx.getImageData(0, 0, l, l))
+	}
+
+	// measure overshoot
+	if (chars.overshoot) {
+		ctx.clearRect(0, 0, l, l)
+		ctx.textBaseline = 'top'
+		ctx.fillText(chars.overshoot, 0, 0)
+		var overshootPx = firstBottom(ctx.getImageData(0, 0, l, l))
+		result.overshoot = overshootPx - baseline
+	}
+
+	// normalize result
 	for (var name in result) {
 		result[name] /= fs
 	}
+
 	result.em = fs
 	measure.cache[family] = result
 
-	result = applyOrigin(result, origin)
-
-	return result
+	return applyOrigin(result, origin)
 }
 
 function applyOrigin(obj, origin) {

@@ -51,12 +51,12 @@ Property | Default | Meaning
 `origin` | `top` | Origin for metrics. Can be changed to `baseline` or any other metric.
 `size` | `64` | Font-size to use for calculations. Larger size gives higher precision with slower performance.
 `canvas` | `measure.canvas` | Canvas to use for measurements.
-`tittle` | `i` | Character to detect tittle. Null value ignores calculation.
-`descent` | `p` | Character to detect descent line. Null value ignores calculation.
-`ascent` | `h` | Character to detect ascent line. Null value ignores calculation.
-`overshoot` | `O` | Character to detect overshoot. Null value ignores calculation.
-`upper` | `H` | Character to detect upper line / cap-height. Null value ignores calculation.
-`lower` | `x` | Character to detect lower line / x-height. Null value ignores calculation.
+`tittle` | `i` | Character to detect tittle. `null` disables calculation.
+`descent` | `p` | Character to detect descent line. `null` disables calculation.
+`ascent` | `h` | Character to detect ascent line. `null` disables calculation.
+`overshoot` | `O` | Character to detect overshoot. `null` disables calculation.
+`upper` | `H` | Character to detect upper line / cap-height. `null` disables calculation.
+`lower` | `x` | Character to detect lower line / x-height. `null` disables calculation.
 
 
 ## See also
