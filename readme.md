@@ -35,9 +35,9 @@ measure('Roboto')
 
 ## API
 
-### `let metrics = measure(font, options?)`
+### `let metrics = measure(family, options?)`
 
-Get metrics data for a font, possibly with custom options. Font can be a string or an array with fonts.
+Get metrics data for a font family or [CSS font string](), possibly with custom options. Font can be a string or an array with fonts.
 
 #### `metrics`:
 
@@ -49,7 +49,9 @@ Get metrics data for a font, possibly with custom options. Font can be a string 
 Property | Default | Meaning
 ---|---|---
 `origin` | `top` | Origin for metrics. Can be changed to `baseline` or any other metric.
-`size` | `64` | Font-size to use for calculations. Larger size gives higher precision with slower performance.
+`fontSize` | `64` | Font-size to use for calculations. Larger size gives higher precision with slower performance.
+`fontWeight` | `normal` | Font weight to use for calculations, eg. `bold`, `700` etc.
+`fontStyle` | `normal` | Font style to use for calculations, eg. `italic`, `oblique`.
 `canvas` | `measure.canvas` | Canvas to use for measurements.
 `tittle` | `i` | Character to detect tittle. `null` disables calculation.
 `descent` | `p` | Character to detect descent line. `null` disables calculation.

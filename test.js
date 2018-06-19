@@ -3,6 +3,7 @@
 let m = require('./')
 let a = require('assert')
 
+
 let fix = {
 	alphabetic: 1.03125,
 	ascent: 0.28125,
@@ -24,4 +25,5 @@ let fix = {
 }
 
 a.deepEqual(m('Roboto', {fontSize: 64}), fix)
+a.deepEqual(m('Roboto', {fontSize: 64, fontWeight: '700', fontStyle: 'italic'}), fix)
 a.equal(m('Roboto', {fontSize: 64, origin: 'baseline'}).baseline, 0)

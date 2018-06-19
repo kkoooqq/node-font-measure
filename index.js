@@ -16,13 +16,15 @@ function measure (font, o) {
 	if (!family) throw Error('`family` must be defined')
 
 	var fs = o.size || o.fontSize || o.em || 48
-	var font = fs + 'px ' + family
+	var weight = o.weight || o.fontWeight || ''
+	var style = o.style || o.fontStyle || ''
+	var font = [style, weight, fs].join(' ') + 'px ' + family
 	var origin = o.origin || 'top'
 
 	if (measure.cache[family]) {
 		// return more precise values if cache has them
 		if (fs <= measure.cache[family].em) {
-			return origin === 'top' ? measure.cache[family] : applyOrigin(measure.cache[family], origin)
+			return applyOrigin(measure.cache[family], origin)
 		}
 	}
 

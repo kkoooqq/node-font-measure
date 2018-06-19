@@ -35,6 +35,6 @@
   },
   "homepage": "https://github.com/dy/font-measure#readme",
   "dependencies": {
-    "object-assign": "^4.1.1"
+    "css-font": "^1.2.0"
   }
 }
