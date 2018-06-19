@@ -59,8 +59,8 @@ function measure (family) {
 	ctx.clearRect(0, 0, l, l)
 	ctx.textBaseline = 'ideographic'
 	ctx.fillText(chars.upper, 0, l)
-	var ideographicH = firstTop(ctx.getImageData(0, 0, l, l))
-	var ideographic = l - hangingPx + topPx
+	var ideographicPx = firstTop(ctx.getImageData(0, 0, l, l))
+	var ideographic = l - ideographicPx + topPx
 
 	// measure cap
 	ctx.clearRect(0, 0, l, l)
@@ -137,7 +137,6 @@ function measure (family) {
 function firstTop(iData) {
 	var data = iData.data
 	for (var i = 3; i < data.length; i+=4) {
-		var px = data[i]
 		if (data[i] !== 0) {
 			return Math.floor((i - 3) *.25 / l)
 		}
@@ -147,7 +146,6 @@ function firstTop(iData) {
 function firstBottom(iData) {
 	var data = iData.data
 	for (var i = data.length - 1; i > 0; i -= 4) {
-		var px = data[i]
 		if (data[i] !== 0) {
 			return Math.floor((i - 3) *.25 / l)
 		}
