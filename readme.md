@@ -1,6 +1,6 @@
 # font-measure [![unstable](https://img.shields.io/badge/stability-unstable-green.svg)](http://github.com/badges/stability-badges)
 
-Calculate metrics for a font metrics.
+Calculate metrics for a font.
 
 [![npm install font-measure](https://nodei.co/npm/font-measure.png?mini=true)](https://npmjs.org/package/font-measure/)
 
