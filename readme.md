@@ -12,22 +12,22 @@ measure('Roboto')
 /*
 {
   top: 0,
+  median: 0.640625,
+  middle: 0.640625,
   bottom: 1.3125,
-  lower: 0.515625,
+  alphabetic: 1.03125,
+  baseline: 1.03125,
   upper: 0.328125,
-  xHeight: 0.53125,
-  alphabetic: 1.046875,
-  baseline: 1.046875,
-  capHeight: 0.71875,
-  median: 0.65625,
-  middle: 0.65625,
+  lower: 0.515625,
+  capHeight: 0.703125,
+  xHeight: 0.515625
   ascent: 0.28125,
-  descent: 0.328125,
-  hanging: 0.21875,
-  ideographic: 1,
+  descent: 1.234375,
+  hanging: 0.203125,
+  ideographic: 1.296875,
   lineHeight: 1.3125,
+  overshoot: 0.015625,
   tittle: 0.28125,
-  overshoot: 0
 }
  */
 
@@ -41,7 +41,7 @@ Get metrics data for a font, possibly with custom options. Font can be a string 
 
 #### `metrics`:
 
-<img src="./sphinx.svg" width="720"/>
+<img src="https://github.com/dy/font-measure/raw/master/sphinx.svg?sanitize=true" width="720"/>
 
 
 #### `options`:
