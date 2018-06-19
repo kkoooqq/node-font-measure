@@ -27,7 +27,7 @@ Get metrics data for a font or custom options.
 
 #### `metrics`
 
-<img src="./sphinx.svg" width="600"/>
+<img src="./sphinx.svg" width="720"/>
 
 
 #### `options`
