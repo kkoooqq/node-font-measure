@@ -1,14 +1,14 @@
 {
-  "name": "char-metrics",
+  "name": "font-measure",
   "version": "1.0.0",
-  "description": "Detect metrics of a character of any font",
+  "description": "Calculate metrics of a font",
   "main": "index.js",
   "scripts": {
     "test": "budo test"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dy/char-metrics.git"
+    "url": "git+https://github.com/dy/font-measure.git"
   },
   "keywords": [
     "font",
@@ -23,14 +23,17 @@
     "ascender",
     "descender",
     "alphabetic",
-    "text-baseline"
+    "text-baseline",
+    "alphabetic",
+    "hanging",
+    "overshoot"
   ],
   "author": "Dmitry Yv <dfcreative@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dy/char-metrics/issues"
+    "url": "https://github.com/dy/font-measure/issues"
   },
-  "homepage": "https://github.com/dy/char-metrics#readme",
+  "homepage": "https://github.com/dy/font-measure#readme",
   "dependencies": {
     "css-font": "^1.0.0"
   }
