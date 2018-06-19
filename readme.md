@@ -1,8 +1,6 @@
 # font-measure [![unstable](https://img.shields.io/badge/stability-unstable-green.svg)](http://github.com/badges/stability-badges)
 
-Calculate font metrics: baseline, height, line-height, top, bottom, middle, width. Like canvas2d `textMetrics` but with complete data.
-
-## Usage
+Calculate metrics for a font metrics.
 
 [![npm install font-measure](https://nodei.co/npm/font-measure.png?mini=true)](https://npmjs.org/package/font-measure/)
 
@@ -13,9 +11,23 @@ measure('Roboto')
 
 /*
 {
-	height: 1,
-	lineHeight: 1,
-
+  top: 0,
+  bottom: 1.3125,
+  lower: 0.515625,
+  upper: 0.328125,
+  xHeight: 0.53125,
+  alphabetic: 1.046875,
+  baseline: 1.046875,
+  capHeight: 0.71875,
+  median: 0.65625,
+  middle: 0.65625,
+  ascent: 0.28125,
+  descent: 0.328125,
+  hanging: 0.21875,
+  ideographic: 1,
+  lineHeight: 1.3125,
+  tittle: 0.28125,
+  overshoot: 0
 }
  */
 

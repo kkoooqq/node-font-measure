@@ -10,7 +10,7 @@ var chars = {
 	descent: 'p',
 	ascent: 'h',
 	tittle: 'i',
-	overshoot: 'S'
+	overshoot: 'O'
 }
 
 var l = canvas.height = 100
@@ -96,8 +96,8 @@ function measure (family) {
 	ctx.clearRect(0, 0, l, l)
 	ctx.textBaseline = 'top'
 	ctx.fillText(chars.overshoot, 0, 0)
-	var overshootPx = firstTop(ctx.getImageData(0, 0, l, l))
-	var overshoot = overshootPx - upper
+	var overshootPx = firstBottom(ctx.getImageData(0, 0, l, l))
+	var overshoot = overshootPx - baseline
 
 	var result = {
 		top: 0,
