@@ -35,9 +35,9 @@ measure('Roboto')
 
 ## API
 
-### `metrics = measure(font|options)`
+### `let metrics = measure(font, options?)`
 
-Get metrics data for a font or custom options.
+Get metrics data for a font, possibly with custom options. Font can be a string or an array with fonts.
 
 #### `metrics`:
 
@@ -48,7 +48,6 @@ Get metrics data for a font or custom options.
 
 Property | Default | Meaning
 ---|---|---
-`family` | `null` | Font-family to detect metrics. Can be a string or an array (fontstack).
 `origin` | `top` | Origin for metrics. Can be changed to `baseline` or any other metric.
 `size` | `64` | Font-size to use for calculations. Larger size gives higher precision with slower performance.
 `canvas` | `measure.canvas` | Canvas to use for measurements.
