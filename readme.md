@@ -21,16 +21,18 @@ measure('Roboto')
 
 ```
 
+## API
+
 ### `metrics = measure(font|options)`
 
 Get metrics data for a font or custom options.
 
-#### `metrics`
+#### `metrics`:
 
 <img src="./sphinx.svg" width="720"/>
 
 
-#### `options`
+#### `options`:
 
 Property | Default | Meaning
 ---|---|---
