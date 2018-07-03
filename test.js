@@ -5,25 +5,26 @@ let a = require('assert')
 
 
 let fix = {
-	alphabetic: 1.03125,
-	ascent: 0.28125,
-	baseline: 1.03125,
-	bottom: 1.3125,
-	capHeight: 0.703125,
-	descent: 1.234375,
-	hanging: 0.203125,
-	ideographic: 1.296875,
-	lineHeight: 1.3125,
-	lower: 0.515625,
-	median: 0.640625,
-	middle: 0.640625,
-	overshoot: 0.015625,
-	tittle: 0.28125,
-	top: 0,
-	upper: 0.328125,
-	xHeight: 0.515625
+	top:0,
+	bottom:1.125,
+	lineHeight:1.125,
+	alphabetic:0.890625,
+	baseline:0.890625,
+	middle:0.546875,
+	median:0.546875,
+	hanging:0.171875,
+	ideographic:1.109375,
+	upper:0.1875,
+	capHeight:0.703125,
+	lower:0.375,
+	xHeight:0.515625,
+	tittle:0.1875,
+	ascent:0.1875,
+	descent:1.09375,
+	overshoot:0.015625
 }
 
-a.deepEqual(m('Roboto', {fontSize: 64}), fix)
-a.deepEqual(m('Roboto', {fontSize: 64, fontWeight: '700', fontStyle: 'italic'}), fix)
-a.equal(m('Roboto', {fontSize: 64, origin: 'baseline'}).baseline, 0)
+let res = m('sans-serif', {fontSize: 64})
+a.deepEqual(m('sans-serif', {fontSize: 64}), fix)
+a.deepEqual(m('sans-serif', {fontSize: 64, fontWeight: '700', fontStyle: 'italic'}), fix)
+a.equal(m('sans-serif', {fontSize: 64, origin: 'baseline'}).baseline, 0)

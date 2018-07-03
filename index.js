@@ -5,6 +5,9 @@ module.exports = measure
 measure.canvas = document.createElement('canvas')
 measure.cache = {}
 
+document.body.appendChild(measure.canvas)
+measure.canvas.style.background = 'gray'
+
 function measure (font, o) {
 	if (!o) o = {}
 
