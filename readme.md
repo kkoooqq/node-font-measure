@@ -2,7 +2,7 @@
 
 Calculate metrics for a font.
 
-[![npm install font-measure](https://nodei.co/npm/font-measure.png?mini=true)](https://npmjs.org/package/font-measure/)
+[![npm install font-measure](https://nodei.co/npm/node-font-measure.png?mini=true)](https://npmjs.org/package/font-measure/)
 
 ```js
 let measure = requrie('font-measure')
@@ -59,6 +59,7 @@ Property | Default | Meaning
 `overshoot` | `O` | Character to detect overshoot. `null` disables calculation.
 `upper` | `H` | Character to detect upper line / cap-height. `null` disables calculation.
 `lower` | `x` | Character to detect lower line / x-height. `null` disables calculation.
+`text` | `mmmmmmmmmmlli` | String to meaureText
 
 
 ## See also

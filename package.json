@@ -1,6 +1,6 @@
 {
-  "name": "font-measure",
-  "version": "1.2.2",
+  "name": "node-font-measure",
+  "version": "0.0.3",
   "description": "Calculate metrics of a font",
   "main": "index.js",
   "scripts": {
@@ -35,6 +35,10 @@
   },
   "homepage": "https://github.com/dy/font-measure#readme",
   "dependencies": {
+    "canvas": "^2.8.0",
     "css-font": "^1.2.0"
+  },
+  "devDependencies": {
+    "font-list": "^1.4.3"
   }
 }
