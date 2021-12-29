@@ -1,6 +1,6 @@
-# font-measure [![unstable](https://img.shields.io/badge/stability-unstable-green.svg)](http://github.com/badges/stability-badges)
+# node-font-measure [![unstable](https://img.shields.io/badge/stability-unstable-green.svg)](http://github.com/badges/stability-badges)
 
-Calculate metrics for a font.
+Calculate metrics for a font in NodeJS.
 
 [![npm install font-measure](https://nodei.co/npm/node-font-measure.png?mini=true)](https://npmjs.org/package/font-measure/)
 
@@ -71,9 +71,3 @@ Property | Default | Meaning
 
 There are many text / font measuring packages for the moment, but most of them don't satisfy basic quality requirements. Special thanks to @soulwire
  for [fontmetrics](https://ghub.io/fontmetrics) as model implementation.
-
-## License
-
-© 2018 Dima Yv. MIT License
-
-Development supported by plot.ly.

@@ -1,8 +1,8 @@
-module.exports = measure
-
-measure.cache = {}
-
 function measure(font, o) {
+    if (!measure.cache) {
+        measure.cache = {}
+    }
+
     if (!o) o = {}
 
     if (typeof font === 'string' || Array.isArray(font)) {
@@ -196,3 +196,5 @@ function firstBottom(iData) {
         }
     }
 }
+
+module.exports = measure

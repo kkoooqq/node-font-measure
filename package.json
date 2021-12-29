@@ -1,14 +1,11 @@
 {
   "name": "node-font-measure",
-  "version": "0.0.3",
+  "version": "0.0.6",
   "description": "Calculate metrics of a font",
   "main": "index.js",
-  "scripts": {
-    "test": "budo test"
-  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dy/font-measure.git"
+    "url": "git+https://github.com/kkoooqq/node-font-measure"
   },
   "keywords": [
     "font",
@@ -31,14 +28,15 @@
   "author": "Dmitry Yv <dfcreative@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dy/font-measure/issues"
+    "url": "https://github.com/kkoooqq/node-font-measure/issues"
   },
-  "homepage": "https://github.com/dy/font-measure#readme",
+  "homepage": "https://github.com/kkoooqq/node-font-measure#readme",
   "dependencies": {
     "canvas": "^2.8.0",
     "css-font": "^1.2.0"
   },
   "devDependencies": {
-    "font-list": "^1.4.3"
+    "font-list": "^1.4.3",
+    "tern": "^0.24.3"
   }
 }
